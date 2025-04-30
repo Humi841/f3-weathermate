@@ -1,0 +1,17 @@
+workflows:
+  build_weather_app:
+    name: Build Weather App
+    instance_type: mac_mini
+    environment:
+      node: 20.10.0
+      npm: 10.2.3
+      java: 17
+    scripts:
+      - npm install
+      - npm install @capacitor/android@5 --legacy-peer-deps
+      - npm run build
+      - npx cap add android
+      - npx cap sync android
+      - cd android && ./gradlew assembleDebug
+    artifacts:
+      - android/app/build/outputs/**/*.apk
