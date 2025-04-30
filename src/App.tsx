@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 
-const API_KEY = 'your_actual_openweather_api_key'';
+const API_KEY = '5aeb9552096f4348b0773319253004';
 
 function App() {
   const [weather, setWeather] = useState<any>(null);
